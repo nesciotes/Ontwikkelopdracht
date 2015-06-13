@@ -11,7 +11,7 @@ namespace StackOverflow
     {
         protected OracleConnection connection;
 
-        protected void OpenConnection()
+        public void OpenConnection()
         {
             if (connection == null)
             {
