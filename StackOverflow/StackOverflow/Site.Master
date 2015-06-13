@@ -4,7 +4,7 @@
 <html lang="en">
 <head runat="server">
     <meta charset="utf-8" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - Rico Clark</title>
     <asp:PlaceHolder runat="server">     
           <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>  
@@ -16,10 +16,7 @@
 <body>
     <form runat="server">
     <asp:ScriptManager runat="server">
-        <Scripts>
-            <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=272931&clcid=0x409 --%>
-            <%--Framework Scripts--%>
-            
+        <Scripts>          
             <asp:ScriptReference Name="MsAjaxBundle" />
             <asp:ScriptReference Name="jquery" />
             <asp:ScriptReference Name="jquery.ui.combined" />
@@ -32,15 +29,13 @@
             <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
             <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
             <asp:ScriptReference Name="WebFormsBundle" />
-            <%--Site Scripts--%>
-
         </Scripts>
     </asp:ScriptManager>
     <header>
         <div class="content-wrapper">
             <div class="float-left">
                 <p class="site-title">
-                    <a runat="server" href="~/">your logo here</a>
+                    <a runat="server" href="~/"><img src="https://dl.dropboxusercontent.com/u/17879954/zeNdkNx.png" /></a>
                 </p>
             </div>
             <div class="float-right">
@@ -49,23 +44,23 @@
                         <AnonymousTemplate>
                             <ul>
                                 <li><a id="registerLink" runat="server" href="~/Account/Register">Register</a></li>
-                                <li><a id="loginLink" runat="server" href="~/Account/Login">Log in</a></li>
+                                <li><a id="loginLink" runat="server" href="~/Account/Login">Login</a></li>
                             </ul>
                         </AnonymousTemplate>
                         <LoggedInTemplate>
                             <p>
-                                Hello, <a runat="server" class="username" href="~/Account/Manage" title="Manage your account">
+                                Good day, <a runat="server" class="username" href="~/Account/Manage" title="My Account">
                                     <asp:LoginName runat="server" CssClass="username" /></a>!
-                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" />
+                                <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Logout" LogoutPageUrl="~/" />
                             </p>
                         </LoggedInTemplate>
                     </asp:LoginView>
                 </section>
                 <nav>
                     <ul id="menu">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">About</a></li>
-                        <li><a runat="server" href="~/Contact">Contact</a></li>
+                        <li><a runat="server" href="~/">Questions</a></li>
+                        <li><a runat="server" href="~/Unanswered">Unanswered</a></li>
+                        <li><a runat="server" href="~/Ask">Ask Question</a></li>
                     </ul>
                 </nav>
             </div>
@@ -80,7 +75,7 @@
     <footer>
         <div class="content-wrapper">
             <div class="float-left">
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Rico Clark</p>
             </div>
         </div>
     </footer>

@@ -13,24 +13,24 @@
                     <asp:Literal runat="server" ID="FailureText" />
                 </p>
                 <fieldset>
-                    <legend>Log in Form</legend>
+                    <legend>Login</legend>
                     <ol>
                         <li>
-                            <asp:Label runat="server" AssociatedControlID="UserName">User name</asp:Label>
+                            <asp:Label runat="server" AssociatedControlID="UserName">Username</asp:Label>
                             <asp:TextBox runat="server" ID="UserName" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="The user name field is required." />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="field-validation-error" ErrorMessage="Please enter your username" />
                         </li>
                         <li>
                             <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" />
-                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="The password field is required." />
+                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Please enter your password" />
                         </li>
                         <li>
                             <asp:CheckBox runat="server" ID="RememberMe" />
                             <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Remember me?</asp:Label>
                         </li>
                     </ol>
-                    <asp:Button runat="server" CommandName="Login" Text="Log in" />
+                    <asp:Button runat="server" CommandName="Login" Text="Login" />
                 </fieldset>
             </LayoutTemplate>
         </asp:Login>
@@ -40,8 +40,4 @@
         </p>
     </section>
 
-    <section id="socialLoginForm">
-        <h2>Use another service to log in.</h2>
-        <uc:OpenAuthProviders runat="server" ID="OpenAuthLogin" />
-    </section>
 </asp:Content>
