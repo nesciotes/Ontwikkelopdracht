@@ -10,15 +10,13 @@ using StackOverflow;
 namespace StackOverflow
 {
     public class Global : HttpApplication
-    {
-        public Administration administration { get; set; }
+    {        
 
         void Application_Start(object sender, EventArgs e)
         {
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterOpenAuth();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            administration = new Administration();
         }
 
         void Application_End(object sender, EventArgs e)

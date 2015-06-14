@@ -39,8 +39,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Oracle.ManagedDataAccess">
-      <HintPath>..\..\..\ICT4Events-SME-S22t-\Deel 2 SME_Event\ICT4EventsClassesASP\Oracle.ManagedDataAccess.dll</HintPath>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.121.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Oracle.ManagedDataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -205,7 +206,7 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="Default.aspx" />
+    <Content Include="Questions.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="packages.config" />
@@ -251,15 +252,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administration.cs" />
-    <Compile Include="Answer.cs" />
+    <Compile Include="App_Code\Administration.cs" />
+    <Compile Include="App_Code\Answer.cs" />
+    <Compile Include="App_Code\Globaal.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
-    <Compile Include="Badge.cs" />
-    <Compile Include="Comment.cs" />
-    <Compile Include="Database.cs" />
-    <Compile Include="Question.cs" />
-    <Compile Include="Tag.cs" />
+    <Compile Include="App_Code\Badge.cs" />
+    <Compile Include="App_Code\Comment.cs" />
+    <Compile Include="App_Code\Database.cs" />
+    <Compile Include="App_Code\Question.cs" />
+    <Compile Include="App_Code\Tag.cs" />
     <Compile Include="Unanswered.aspx.cs">
       <DependentUpon>Unanswered.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,12 +312,12 @@
     <Compile Include="Ask.aspx.designer.cs">
       <DependentUpon>Ask.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Questions.aspx.cs">
+      <DependentUpon>Questions.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Questions.aspx.designer.cs">
+      <DependentUpon>Questions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -335,7 +337,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="App_Code\User.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

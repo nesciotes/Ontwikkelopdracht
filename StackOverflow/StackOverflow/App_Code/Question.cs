@@ -15,6 +15,15 @@ namespace StackOverflow
         public List<Comment> comments { get; set; }
         public List<Answer> answers { get; set; }
         public List<Tag> tags { get; set; }
+        public string poster { get; set; }
+
+        public Question(int ID, string title, string poster, int views)
+        {
+            this.ID = ID;
+            this.title = title;
+            this.poster = poster;
+            this.views = views;
+        }
 
         public Question(int ID, string title, string text, DateTime date, List<Comment> comments, List<Answer> answers, List<Tag> tags)
         {

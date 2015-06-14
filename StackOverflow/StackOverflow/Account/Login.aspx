@@ -1,12 +1,11 @@
-﻿<%@ Page Title="Log in" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="StackOverflow.Account.Login" %>
+﻿<%@ Page Title="Login" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="StackOverflow.Account.Login" %>
 <%@ Register Src="~/Account/OpenAuthProviders.ascx" TagPrefix="uc" TagName="OpenAuthProviders" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">
-        <h1><%: Title %>.</h1>
+        <h1><%: Title %></h1>
     </hgroup>
     <section id="loginForm">
-        <h2>Use a local account to log in.</h2>
         <asp:Login runat="server" ViewStateMode="Disabled" RenderOuterTable="false">
             <LayoutTemplate>
                 <p class="validation-summary-errors">
@@ -24,10 +23,6 @@
                             <asp:Label runat="server" AssociatedControlID="Password">Password</asp:Label>
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Please enter your password" />
-                        </li>
-                        <li>
-                            <asp:CheckBox runat="server" ID="RememberMe" />
-                            <asp:Label runat="server" AssociatedControlID="RememberMe" CssClass="checkbox">Remember me?</asp:Label>
                         </li>
                     </ol>
                     <asp:Button runat="server" CommandName="Login" Text="Login" />
