@@ -19,12 +19,6 @@ namespace StackOverflow.Account
             
             RegisterHyperLink.NavigateUrl = "Register";
 
-
-            var returnUrl = HttpUtility.UrlEncode(Request.QueryString["ReturnUrl"]);
-            if (!String.IsNullOrEmpty(returnUrl))
-            {
-                RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
-            }
         }
 
         public void Login_(object sender, System.EventArgs e)

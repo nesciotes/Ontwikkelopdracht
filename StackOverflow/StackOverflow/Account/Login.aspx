@@ -9,7 +9,7 @@
                 <p class="validation-summary-errors">
                     <asp:Literal runat="server" ID="FailureText" />
                 </p>
-                    <ol>
+                    <ul>
                         <li>
                             <asp:Label runat="server" AssociatedControlID="UserName">Username</asp:Label>
                             <asp:TextBox runat="server" ID="UserName" />
@@ -20,7 +20,7 @@
                             <asp:TextBox runat="server" ID="Password" TextMode="Password" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Please enter your password" />
                         </li>
-                    </ol>
+                    </ul>
                     
                     <asp:Button runat="server" id="login" OnClick="Login_" Text="Login">
 

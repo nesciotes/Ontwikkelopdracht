@@ -49,5 +49,10 @@ namespace StackOverflow
             user = database.Register(username, password, email);
             return user;
         }
+
+        public int addquestion(string title, string text, string tags)
+        {
+            return database.Addquestion(title, text, tags);
+        }
     }
 }

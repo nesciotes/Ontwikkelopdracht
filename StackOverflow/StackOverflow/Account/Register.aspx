@@ -8,7 +8,7 @@
                     <p class="validation-summary-errors">
                         <asp:Literal runat="server" ID="ErrorMessage" />
                     </p>
-                        <ol>
+                        <ul>
                         <li>
                             <asp:Label runat="server" AssociatedControlID="UserName">Username</asp:Label>
                             <asp:TextBox runat="server" ID="UserName" />
@@ -29,7 +29,7 @@
                             <asp:TextBox runat="server" ID="Password2" TextMode="Password" />
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Please enter your password again" />
                         </li>
-                    </ol>
+                    </ul>
                         <asp:Button runat="server" id="register" CommandName="MoveNext" Text="Register" />
 
     </section>

@@ -22,8 +22,9 @@ namespace StackOverflow
         public List<Answer> answers { get; set; }
         public List<Comment> comments { get; set; }
 
-        public User(string username, string email, string bio, string registerdate, int reputation, int views, bool admin)
+        public User(int id, string username, string email, string bio, string registerdate, int reputation, int views, bool admin)
         {
+            this.ID = id;
             this.username = username;
             this.email = email;
             this.bio = bio;
