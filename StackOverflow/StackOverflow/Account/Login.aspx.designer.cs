@@ -13,6 +13,42 @@ namespace StackOverflow.Account {
     public partial class Login {
         
         /// <summary>
+        /// FailureText control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal FailureText;
+        
+        /// <summary>
+        /// UserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox UserName;
+        
+        /// <summary>
+        /// Password control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Password;
+        
+        /// <summary>
+        /// login control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button login;
+        
+        /// <summary>
         /// RegisterHyperLink control.
         /// </summary>
         /// <remarks>
@@ -20,8 +56,5 @@ namespace StackOverflow.Account {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
-        protected global::System.Web.UI.WebControls.Button login;
-        protected global::System.Web.UI.WebControls.TextBox UserName;
-        protected global::System.Web.UI.WebControls.TextBox Password;
     }
 }

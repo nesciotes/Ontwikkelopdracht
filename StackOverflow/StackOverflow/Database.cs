@@ -44,7 +44,7 @@ namespace StackOverflow
             {
                 if (connection.State == ConnectionState.Open)
                 {
-                    string CommandText = String.Format( "SELECT questionid, titel, gebruikersnaam, totalviews FROM Question q, Gebruiker g WHERE questionID NOT IN( SELECT questionID FROM Answer) AND q.gebruikerID = g.gebruikerID");
+                    string CommandText = String.Format( "SELECT questionid, titel, gebruikersnaam, totalviews, datum FROM Question q, Gebruiker g WHERE questionID NOT IN( SELECT questionID FROM Answer) AND q.gebruikerID = g.gebruikerID");
                     OracleCommand checkCommand = new OracleCommand(CommandText, connection);
                     checkCommand.CommandType = CommandType.Text;
                     OracleDataReader checkReader = checkCommand.ExecuteReader();
@@ -124,13 +124,13 @@ namespace StackOverflow
 
         public User Login(string username, string password)
         {
-            User user;
+            User user = null;
             this.OpenConnection();
             try
             {
                 if (connection.State == ConnectionState.Open)
                 {
-                    string CommandText = String.Format("SELECT gebruikersnaam, wachtwoord, email, bio, inschrijfdatum, reputatie, profileviews, isadmin FROM gebruiker WHERE lower(gebruikersnaam) = lower('{1}') AND wachtwoord = '{2}'", username, password);
+                    string CommandText = String.Format("SELECT gebruikersnaam, wachtwoord, email, bio, inschrijfdatum, reputatie, profileviews, isadmin FROM gebruiker WHERE lower(gebruikersnaam) = lower('{0}') AND wachtwoord = '{1}'", username, password);
                     OracleCommand checkCommand = new OracleCommand(CommandText, connection);
                     checkCommand.CommandType = CommandType.Text;
                     OracleDataReader checkReader = checkCommand.ExecuteReader();
