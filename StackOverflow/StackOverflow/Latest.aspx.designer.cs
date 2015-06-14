@@ -7,21 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StackOverflow.Account {
+namespace StackOverflow {
     
     
-    public partial class Login {
+    public partial class Latest {
         
         /// <summary>
-        /// RegisterHyperLink control.
+        /// content control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink RegisterHyperLink;
-        protected global::System.Web.UI.WebControls.Button login;
-        protected global::System.Web.UI.WebControls.TextBox UserName;
-        protected global::System.Web.UI.WebControls.TextBox Password;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl content;
     }
 }

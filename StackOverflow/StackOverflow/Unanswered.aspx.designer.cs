@@ -7,11 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StackOverflow
-{
-
-    public partial class About
-    {
-
+namespace StackOverflow {
+    
+    
+    public partial class Unanswered {
+        
+        /// <summary>
+        /// content control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl content;
     }
 }

@@ -25,7 +25,7 @@
                             <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="field-validation-error" ErrorMessage="Please enter your password" />
                         </li>
                     </ol>
-                    <asp:Button runat="server" CommandName="Login" Text="Login" />
+                    <asp:Button id="login" onClick="Login_" runat="server" Text="Login"></asp:Button>
                 </fieldset>
             </LayoutTemplate>
         </asp:Login>

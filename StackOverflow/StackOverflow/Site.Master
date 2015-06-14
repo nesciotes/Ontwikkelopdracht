@@ -58,7 +58,7 @@
                 </section>
                 <nav>
                     <ul id="menu">
-                        <li><a runat="server" href="~/">Questions</a></li>
+                        <li><a runat="server" href="~/">Newest</a></li>
                         <li><a runat="server" href="~/Unanswered">Unanswered</a></li>
                         <li><a runat="server" href="~/Ask">Ask Question</a></li>
                     </ul>

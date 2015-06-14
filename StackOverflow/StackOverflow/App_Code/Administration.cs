@@ -9,7 +9,7 @@ namespace StackOverflow
     {
         private static Administration administration;
         protected Database database;
-        public User user;
+        public User user {get; set;}
 
         private Administration()
         {
@@ -28,9 +28,20 @@ namespace StackOverflow
             }
         }
 
-        public List<Question> popularquestions()
+        public List<Question> unansweredQuestions()
         {
-            return database.latestQuestions();
+            return database.UnansweredQuestions();
+        }
+
+        public List<Question> newestQuestions()
+        {
+            return database.NewestQuestions();
+        }
+
+        public User login(string username, string password)
+        {
+            user = database.Login(username, password);
+            return user;
         }
     }
 }

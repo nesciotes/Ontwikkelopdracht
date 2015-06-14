@@ -12,7 +12,7 @@ namespace StackOverflow
         public string password { get; set; }
         public string email { get; set; }
         public string bio { get; set; }
-        public DateTime registerdate { get; set; }
+        public string registerdate { get; set; }
         public int reputation { get; set; }
         public int views { get; set; }
         public bool admin { get; set; }
@@ -22,11 +22,15 @@ namespace StackOverflow
         public List<Answer> answers { get; set; }
         public List<Comment> comments { get; set; }
 
-        public User(int ID, string username, bool admin)
+        public User(string username, string email, string bio, string registerdate, int reputation, int views, bool admin)
         {
-            this.ID = ID;
             this.username = username;
+            this.email = email;
+            this.bio = bio;
+            this.registerdate = registerdate;
+            this.views = views;
             this.admin = admin;
+            this.reputation = reputation;
         }
     }
 }
