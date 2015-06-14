@@ -122,6 +122,45 @@ namespace StackOverflow
             return questions;
         }
 
+        public User Register(string username, string password, string email)
+        {
+            User user = null;
+            this.OpenConnection();
+            try
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    string CommandText = String.Format("SELECT gebruikersnaam FROM gebruiker WHERE lower(gebruikersnaam) = lower('{0}')", username);
+                    OracleCommand checkCommand = new OracleCommand(CommandText, connection);
+                    checkCommand.CommandType = CommandType.Text;
+                    OracleDataReader checkReader = checkCommand.ExecuteReader();
+
+                    if (!checkReader.HasRows)
+                    {
+                                CommandText = String.Format("INSERT INTO GEBRUIKER (gebruikersnaam, wachtwoord, email, inschrijfdatum) VALUES (LOWER('{0}'), '{1}', '{2}', SYSDATE)", username, password, email);
+                                checkCommand = new OracleCommand(CommandText, connection);
+                                checkCommand.CommandType = CommandType.Text;
+                                checkCommand.ExecuteNonQuery(); 
+                                                        user = new User(username, email, "", Convert.ToString(DateTime.Now), 0, 0, false);
+                }
+                    checkReader.Close();
+                }
+                else
+                {
+                    Console.WriteLine("Could not connect to database");
+                }
+            }
+            catch (OracleException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return user;
+        }
+
         public User Login(string username, string password)
         {
             User user = null;

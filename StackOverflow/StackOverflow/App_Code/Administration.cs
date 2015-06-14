@@ -43,5 +43,11 @@ namespace StackOverflow
             user = database.Login(username, password);
             return user;
         }
+
+        public User register(string username, string password, string email)
+        {
+            user = database.Register(username, password, email);
+            return user;
+        }
     }
 }
