@@ -302,7 +302,7 @@ namespace StackOverflow
             {
                 if (connection.State == ConnectionState.Open)
                 {
-                    string CommandText = String.Format("SELECT titel, tekst, q.views, q.datum, g.gebruikersnaam FROM question q, gebruiker g WHERE questionid = {0} AND q.gebruikerid = g.gebruikerid", id);
+                    string CommandText = String.Format("SELECT titel, tekst, totalviews, datum, gebruikersnaam FROM question q, gebruiker g WHERE questionid = {0} AND q.gebruikerid = g.gebruikerid", id);
                     OracleCommand checkCommand = new OracleCommand(CommandText, connection);
                     checkCommand.CommandType = CommandType.Text;
                     OracleDataReader checkReader = checkCommand.ExecuteReader();
@@ -313,11 +313,11 @@ namespace StackOverflow
                         {
                             string titel = Convert.ToString(checkReader["titel"]);
                             string tekst = Convert.ToString(checkReader["tekst"]);
-                            int views = Convert.ToInt32(checkReader["views"]);
+                            int views = Convert.ToInt32(checkReader["totalviews"]);
                             string datum = Convert.ToString(checkReader["datum"]);
                             string gebruikersnaam = Convert.ToString(checkReader["gebruikersnaam"]);
 
-                            q = new Question(id, titel, gebruikersnaam, views, datum);
+                            q = new Question(id, titel, tekst, gebruikersnaam, views, datum);
                         }
                     }
                     checkReader.Close();
@@ -346,7 +346,7 @@ namespace StackOverflow
             {
                 if (connection.State == ConnectionState.Open)
                 {
-                    string CommandText = String.Format("SELECT tekst, datum FROM answer WHERE questionid = {0}", id);
+                    string CommandText = String.Format("SELECT tekst, datum FROM answer WHERE questionid = {0} ORDER BY answerid DESC", id);
                     OracleCommand checkCommand = new OracleCommand(CommandText, connection);
                     checkCommand.CommandType = CommandType.Text;
                     OracleDataReader checkReader = checkCommand.ExecuteReader();

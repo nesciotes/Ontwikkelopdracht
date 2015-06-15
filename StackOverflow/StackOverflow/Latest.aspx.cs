@@ -16,7 +16,7 @@ namespace StackOverflow
             List<Question> newestquestions = Administration.Administration_.newestQuestions();
             foreach (Question q in newestquestions)
             {
-                content.InnerHtml += "<div class='box'><h3>" + q.poster + " | " + q.views + " views | " + q.date + "</h3><p><a href='~/question?id=" + q.ID + "'>" + q.title + "</a></p></div><br />";
+                content.InnerHtml += "<div class='box'><h3>" + q.poster + " | " + q.views + " views | " + q.date + "</h3><p><a href='Question?id=" + q.ID + "'>" + q.title + "</a></p></div><br />";
             }
         }
     }

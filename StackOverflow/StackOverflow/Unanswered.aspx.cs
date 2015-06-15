@@ -15,7 +15,7 @@ namespace StackOverflow
             List<Question> unansweredquestions = Administration.Administration_.unansweredQuestions();
             foreach (Question q in unansweredquestions)
             {
-                content.InnerHtml += "<div class='box'><h3>" + q.poster + " | " + q.views + " views | " + q.date + "</h3><p><a href='~/question?id=" + q.ID + "'>" + q.title + "</a></p></div>";
+                content.InnerHtml += "<div class='box'><h3>" + q.poster + " | " + q.views + " views | " + q.date + "</h3><p><a href='Question?id=" + q.ID + "'>" + q.title + "</a></p></div>";
             }
         }
     }

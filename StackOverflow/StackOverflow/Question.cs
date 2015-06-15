@@ -26,14 +26,14 @@ namespace StackOverflow
             this.date = date;
         }
 
-        public Question(int ID, string title, string text, List<Comment> comments, List<Answer> answers, List<Tag> tags)
+        public Question(int ID, string title, string text, string poster, int views, string date)
         {
             this.ID = ID;
             this.title = title;
+            this.poster = poster;
+            this.views = views;
+            this.date = date;
             this.text = text;
-            this.comments = comments;
-            this.answers = answers;
-            this.tags = tags;
         }
     }
 }

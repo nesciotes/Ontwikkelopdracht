@@ -12,17 +12,15 @@ namespace StackOverflow
         protected void Page_Load(object sender, EventArgs e)
         {
             Question q = Administration.Administration_.loadQuestion(Convert.ToInt32(Request.QueryString["id"]));
-            content.InnerHtml += "<div class='box'><h3>" + q.title + " | " + q.poster + " | " + q.views + " views | " + q.date + "</h3><p>" + q.text + "</p></div><br /><br /><br />";
-
-            foreach (Answer a in Administration.Administration_.loadAnswers(Convert.ToInt32(Request.QueryString["id"])))
+            if (q != null)
             {
-                q.answers.Add(a);
-            }
+                content.InnerHtml += "<div class='box'><h3>" + q.title + " | " + q.poster + " | " + q.views + " views | " + q.date + "</h3><p>" + q.text + "</p></div><br /><br /><br />";
 
-            foreach(Answer a in q.answers)
-            {
-                content.InnerHtml += "<div class='box'><h3>" + a.date + "</h3><p>" + a.text + "</p></div>";
+                foreach (Answer a in Administration.Administration_.loadAnswers(Convert.ToInt32(Request.QueryString["id"])))
+                {
+                    content.InnerHtml += "<div class='box'><h3>" + a.date + "</h3><p>" + a.text + "</p></div>";
 
+                }
             }
         }
     }

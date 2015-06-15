@@ -23,7 +23,7 @@ namespace StackOverflow
             int id = Administration.Administration_.addquestion(title.Text, question.Text, tags.Text);
             if(id > 0)
             {
-                Response.Redirect("~/Question?id=" + id);
+                Response.Redirect("Question?id=" + id);
             }
             else if(id == -1)
             {
