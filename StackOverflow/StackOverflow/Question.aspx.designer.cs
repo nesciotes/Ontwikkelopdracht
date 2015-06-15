@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace StackOverflow.Account {
+namespace StackOverflow {
     
     
-    public partial class OpenAuthProviders {
+    public partial class Question1 {
         
         /// <summary>
-        /// providerDetails control.
+        /// content control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView providerDetails;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl content;
     }
 }

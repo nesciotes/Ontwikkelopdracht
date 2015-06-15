@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace StackOverflow
 {
-    public partial class Contact : Page
+    public partial class Ask : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

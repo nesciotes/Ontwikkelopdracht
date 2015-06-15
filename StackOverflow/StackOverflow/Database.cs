@@ -293,5 +293,90 @@ namespace StackOverflow
             }
             return id;
         }
+
+        public Question Loadquestion(int id)
+        {
+            Question q = null;
+            this.OpenConnection();
+            try
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    string CommandText = String.Format("SELECT titel, tekst, q.views, q.datum, g.gebruikersnaam FROM question q, gebruiker g WHERE questionid = {0} AND q.gebruikerid = g.gebruikerid", id);
+                    OracleCommand checkCommand = new OracleCommand(CommandText, connection);
+                    checkCommand.CommandType = CommandType.Text;
+                    OracleDataReader checkReader = checkCommand.ExecuteReader();
+
+                    if (checkReader.HasRows)
+                    {
+                        while (checkReader.Read())
+                        {
+                            string titel = Convert.ToString(checkReader["titel"]);
+                            string tekst = Convert.ToString(checkReader["tekst"]);
+                            int views = Convert.ToInt32(checkReader["views"]);
+                            string datum = Convert.ToString(checkReader["datum"]);
+                            string gebruikersnaam = Convert.ToString(checkReader["gebruikersnaam"]);
+
+                            q = new Question(id, titel, gebruikersnaam, views, datum);
+                        }
+                    }
+                    checkReader.Close();
+                }
+                else
+                {
+                    Console.WriteLine("Could not connect to database");
+                }
+            }
+            catch (OracleException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return q;
+        }
+
+        public List<Answer> Loadanswers(int id)
+        {
+            List<Answer> answers = new List<Answer>();
+            this.OpenConnection();
+            try
+            {
+                if (connection.State == ConnectionState.Open)
+                {
+                    string CommandText = String.Format("SELECT tekst, datum FROM answer WHERE questionid = {0}", id);
+                    OracleCommand checkCommand = new OracleCommand(CommandText, connection);
+                    checkCommand.CommandType = CommandType.Text;
+                    OracleDataReader checkReader = checkCommand.ExecuteReader();
+
+                    if (checkReader.HasRows)
+                    {
+                        while (checkReader.Read())
+                        {
+                            string tekst = Convert.ToString(checkReader["tekst"]);
+                            string datum = Convert.ToString(checkReader["datum"]);
+
+                            answers.Add(new Answer(tekst, datum));
+                        }
+                    }
+                    checkReader.Close();
+                }
+                else
+                {
+                    Console.WriteLine("Could not connect to database");
+                }
+            }
+            catch (OracleException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                this.CloseConnection();
+            }
+            return answers;
+        }
     }
 }

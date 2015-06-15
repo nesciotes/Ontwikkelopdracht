@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Ask a Question" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ask.aspx.cs" Inherits="StackOverflow.Contact" %>
+﻿<%@ Page Title="Ask a Question" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ask.aspx.cs" Inherits="StackOverflow.Ask" %>
 
 <asp:Content runat="server" ID="BodyContent" ContentPlaceHolderID="MainContent">
     <hgroup class="title">

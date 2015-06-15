@@ -54,5 +54,15 @@ namespace StackOverflow
         {
             return database.Addquestion(title, text, tags);
         }
+
+        public Question loadQuestion(int id)
+        {
+            return database.Loadquestion(id);
+        }
+
+        public List<Answer> loadAnswers(int id)
+        {
+            return database.Loadanswers(id);
+        }
     }
 }

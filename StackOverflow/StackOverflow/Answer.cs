@@ -9,17 +9,16 @@ namespace StackOverflow
     {
         public int ID { get; private set; }
         public string text { get; set; }
-        public DateTime date { get; set; }
+        public string date { get; set; }
         public bool accepted { get; set; }
         public List<Comment> comments { get; set; }
 
-        public Answer(int ID, string text, DateTime date, bool accepted, List<Comment> comments)
+        public Answer(string text, string date)
         {
-            this.ID = ID;
+
             this.text = text;
             this.date = date;
-            this.accepted = accepted;
-            this.comments = comments;
+
         }
     }
 }

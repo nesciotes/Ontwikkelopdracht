@@ -10,7 +10,7 @@
 namespace StackOverflow {
     
     
-    public partial class Contact {
+    public partial class Ask {
         
         /// <summary>
         /// FailureText control.
