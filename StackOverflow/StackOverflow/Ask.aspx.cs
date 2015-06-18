@@ -15,8 +15,7 @@ namespace StackOverflow
             if(Administration.Administration_.user == null)
             {
                 Response.Redirect("~/Account/Login");
-            }
-        }
+            }     }
 
         public void Ask_(object sender, System.EventArgs e)
         {
