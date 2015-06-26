@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace GreenShark_Rico_Clark_2015
             {
                 try
                 {
+                    //Connectionstring
                     this.connection.ConnectionString =
                         "User Id=dbi329153;Password=guG3TM3oxe;Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=fhictora01.fhict.local)(PORT=1521))(CONNECT_DATA=(SERVICE_NAME=fhictora)));";
                     this.connection.Open();
@@ -44,6 +46,7 @@ namespace GreenShark_Rico_Clark_2015
 
         public List<MissionProfile> LoadAllTemplates()
         {
+            //Lijst van alle profielen om terug te geven
             List<MissionProfile> profiles = new List<MissionProfile>();
             try
             {
@@ -86,6 +89,7 @@ namespace GreenShark_Rico_Clark_2015
                             {
                                 for (int i = 0; i < Convert.ToInt32(reader2["aantal"]); i++)
                                 {
+                                    //Alle materialen die bij missieprofiel horen er aan toevoegen
                                     m.boattype.materials.Add(
                                         new Material(Convert.ToString(reader2["naam"])));
                                 }
@@ -109,6 +113,7 @@ namespace GreenShark_Rico_Clark_2015
                             {
                                 for (int i = 0; i < Convert.ToInt32(reader3["aantal"]); i++)
                                 {
+                                    //Alle personeel die bij een missieprofiel horen eraan toevoegen
                                     m.boattype.materials.Add(
                                         new Material(Convert.ToString(reader3["naam"])));
                                 }
@@ -134,6 +139,51 @@ namespace GreenShark_Rico_Clark_2015
             return profiles;
         }
 
+        public SIN LoadMission(string name)
+        {
+            SIN mission = null;
+            try
+            {
+                //Open connectie
+                this.OpenConnection();
+
+                //Selecteer missie waarvan naam hetzelfde is als opgegeven naam
+                string CommandText =
+                    "SELECT m.startdatum, m.x, m.y, m.beschrijving FROM Missie m WHERE m.naam = :naam";
+                OracleCommand checkCommand = new OracleCommand(CommandText, this.connection);
+                List<OracleParameter> parameters = new List<OracleParameter>();
+                parameters.Add(new OracleParameter(":naam", name));
+                checkCommand.CommandType = CommandType.Text;
+
+                OracleDataReader reader = this.Read(CommandText, parameters);
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        //Gevonden informatie in missie object stoppen
+                        mission = new SIN(Convert.ToDateTime(reader["startdatum"]),
+                            new Point(Convert.ToInt32(reader["x"]), Convert.ToInt32(reader["y"])),
+                            Convert.ToString(reader["beschrijving"]), true, "SIN Missie");
+                    }
+                }
+
+            }
+            catch
+                (OracleException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (this.connection.State == ConnectionState.Open)
+                {
+                    this.connection.Close();
+                }
+            }
+            //Dit missie object uiteindelijk terug geven
+            return mission;
+        }
+
         public bool AddMission(SIN mission)
         {
             try
@@ -141,6 +191,7 @@ namespace GreenShark_Rico_Clark_2015
                 //Open connectie
                 this.OpenConnection();
 
+                //Nieuwe missie invoeren in database
                 OracleCommand editCommand =
                     new OracleCommand(
                         "INSERT INTO Missie (startdatum, x, y, beschrijving, type) VALUES (:startdatum, :x, :y, :beschrijving: type)");
@@ -153,6 +204,7 @@ namespace GreenShark_Rico_Clark_2015
                 editCommand.CommandType = CommandType.Text;
                 editCommand.ExecuteNonQuery();
 
+                //Bijbehorende informatie in andere tabellen ook inserten
                 editCommand =
                     new OracleCommand(
                         "INSERT INTO SIN (MissieID, naam) VALUES ( ( SELECT MAX(m.MissieID) FROM Missie m), :name)");
@@ -179,6 +231,7 @@ namespace GreenShark_Rico_Clark_2015
 
         protected internal OracleDataReader Read(string selectQuery, List<OracleParameter> parameters)
         {
+            //Functie om informatie uit de database uit te lezen met OracleParameters
             OracleDataReader result = null;
             try
             {

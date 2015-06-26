@@ -12,11 +12,18 @@ namespace GreenShark_Rico_Clark_2015
         public string name { get; set; }
         public List<Incident> incidents { get; set; }
 
-        public SIN(DateTime startdate, Point location, string description, bool type, Boat boat, string name, List<Incident> incidents)
-            : base(startdate, location, description, type, boat)
+        public SIN(DateTime startdate, Point location, string description, bool type, string name)
+            : base(startdate, location, description, type)
         {
             this.name = name;
             this.incidents = incidents;
         }
+
+        //Alleen voor unit tests
+        public SIN(int x, int y) : base(x, y)
+        {
+            //
+        }
+
     }
 }

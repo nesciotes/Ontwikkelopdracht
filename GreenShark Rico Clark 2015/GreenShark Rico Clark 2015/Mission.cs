@@ -23,5 +23,19 @@ namespace GreenShark_Rico_Clark_2015
             this.type = type;
             this.boat = boat;
         }
+
+        public Mission(DateTime startdate, Point location, string description, bool type)
+        {
+            this.startdate = startdate;
+            this.location = location;
+            this.description = description;
+            this.type = type;
+        }
+
+        //Voor unittests
+        public Mission(int x, int y)
+        {
+            this.location = new Point(x, y);
+        }
     }
 }

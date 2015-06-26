@@ -17,7 +17,7 @@ namespace GreenShark_Rico_Clark_2015
         public List<User> users { get; set; }
         public List<Material> materials { get; set; }
 
-        public Boat(string name, string type, int speed, int people, Point location, List<User> users,
+        public Boat(string name, int speed, int people, List<User> users,
             List<Material> materials)
         {
             this.name = name;
@@ -34,6 +34,17 @@ namespace GreenShark_Rico_Clark_2015
             this.name = name;
             this.speed = speed;
             this.people = people;
+        }
+
+        //Voor unittests
+        public Boat(int x, int y)
+        {
+            this.location = new Point(x, y);
+        }
+
+        public override string ToString()
+        {
+            return this.name;
         }
     }
 }

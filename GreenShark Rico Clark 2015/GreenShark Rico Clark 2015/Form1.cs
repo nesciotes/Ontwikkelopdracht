@@ -16,7 +16,19 @@ namespace GreenShark_Rico_Clark_2015
         {
             InitializeComponent();
             tcMissiontabs.DrawItem += new DrawItemEventHandler(tcMissiontabs_DrawItem);
+
+            //Het aanmaken van de 3 boot types om te gebruiken bij het aanmaken van missies
+            cbBoattype.Items.Add(new Boat("Klein", 50, 4));
+            cbBoattype.Items.Add(new Boat("Middel", 45, 8));
+            cbBoattype.Items.Add(new Boat("Groot", 32, 15));
+
+            foreach (MissionProfile mp in Administration.Administration_.profiles)
+            {
+                cbProfile.Items.Add(mp);
+            }
+
             //LoadAllTemplates();
+            Unittest_Distance();
         }
 
         private void LoadAllTemplates()
@@ -76,13 +88,19 @@ namespace GreenShark_Rico_Clark_2015
 
         private void btLoadMission_Click(object sender, EventArgs e)
         {
+            //Wanneer er een naam ingevuld is en er wordt op Laad gedrukt wordt de betreffende missie ingeladen en de informatie getoond in de textboxes
             btSaveMission.Visible = true;
             btDeleteMission.Visible = true;
+            SIN mission = Administration.Administration_.LoadMission(tbName.Text);
+            tbDate.Text = Convert.ToString(mission.startdate);
+            tbX.Text = Convert.ToString(mission.location.X);
+            tbY.Text = Convert.ToString(mission.location.Y);
+            tbDescription.Text = mission.description;
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbProfiles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            //if(cbProfile.SelectedItem.)
         }
 
         private void btSaveMission_Click(object sender, EventArgs e)
@@ -131,6 +149,42 @@ namespace GreenShark_Rico_Clark_2015
         {
             btSaveReportI.Visible = false;
             btRemoveReportI.Visible = false;
+        }
+
+        private void btCreateMission_Click(object sender, EventArgs e)
+        {
+            //Bij het aanmaken van een missie sturen we de waarden van de textboxes door en creëren we een object
+            if (cbMissiontype.Text == "SIN")
+            {
+                Administration.Administration_.AddMission(
+                    new SIN(
+                        Convert.ToDateTime(tbDate),
+                        new Point(Convert.ToInt32(tbX.Text),
+                            Convert.ToInt32(tbY.Text)),
+                        tbDescription.Text,
+                        true,
+                        "Missie"));
+            }
+        }
+
+        public void Unittest_Distance()
+        {
+            Mission mission = new SIN(100, 100);
+            List<Boat> boats = new List<Boat>();
+
+            boats.Add(new Boat(500, 120));
+            boats.Add(new Boat(400, 50));
+            boats.Add(new Boat(90, 70));
+
+            //Deze is het dichtst bij
+            boats.Add(new Boat(100, 110));
+
+            boats.Add(new Boat(400, 50));
+
+            //Als het algoritme klopt zou de messagebox moeten weergeven "X=100, Y=110" en is de unittest geslaagd
+            Boat nearestboat = Administration.Administration_.Nearestboat(boats, mission);
+            MessageBox.Show(Convert.ToString(nearestboat.location));
+
         }
     }
 }
