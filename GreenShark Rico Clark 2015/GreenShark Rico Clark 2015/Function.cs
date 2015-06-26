@@ -8,5 +8,11 @@ namespace GreenShark_Rico_Clark_2015
 {
     class Function
     {
+        public string name { get; set; }
+
+        public Function(string name)
+        {
+            this.name = name;
+        }
     }
 }

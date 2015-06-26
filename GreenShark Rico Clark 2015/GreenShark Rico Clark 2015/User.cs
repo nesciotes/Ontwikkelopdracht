@@ -8,5 +8,18 @@ namespace GreenShark_Rico_Clark_2015
 {
     class User
     {
+        public string username { get; set; }
+        public Function function { get; set; }
+
+        public User(string username, Function function)
+        {
+            this.username = username;
+            this.function = function;
+        }
+
+        public User(Function function)
+        {
+            this.function = function;
+        }
     }
 }

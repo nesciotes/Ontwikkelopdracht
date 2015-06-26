@@ -8,5 +8,11 @@ namespace GreenShark_Rico_Clark_2015
 {
     class Material
     {
+        public string name { get; set; }
+
+        public Material(string name)
+        {
+            this.name = name;
+        }
     }
 }

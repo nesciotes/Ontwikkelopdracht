@@ -16,7 +16,15 @@ namespace GreenShark_Rico_Clark_2015
         {
             InitializeComponent();
             tcMissiontabs.DrawItem += new DrawItemEventHandler(tcMissiontabs_DrawItem);
+            LoadAllTemplates();
+        }
 
+        private void LoadAllTemplates()
+        {
+            foreach (MissionProfile mp in Administration.Administration_.LoadAllTemplates())
+            {
+                cbMissiontype.Items.Add(mp);
+            }
         }
 
         private void GreenShark_Load(object sender, EventArgs e)
@@ -105,6 +113,24 @@ namespace GreenShark_Rico_Clark_2015
         {
             btSaveReportM.Visible = false;
             btRemoveReportM.Visible = false;
+        }
+
+        private void btLoadReportI_Click(object sender, EventArgs e)
+        {
+            btSaveReportI.Visible = true;
+            btRemoveReportI.Visible = true;
+        }
+
+        private void btSaveReportI_Click(object sender, EventArgs e)
+        {
+            btSaveReportI.Visible = false;
+            btRemoveReportI.Visible = false;
+        }
+
+        private void btRemoveReportI_Click(object sender, EventArgs e)
+        {
+            btSaveReportI.Visible = false;
+            btRemoveReportI.Visible = false;
         }
     }
 }

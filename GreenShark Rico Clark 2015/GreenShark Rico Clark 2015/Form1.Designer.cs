@@ -96,11 +96,25 @@
             this.btSaveReportM = new System.Windows.Forms.Button();
             this.btLoadReportM = new System.Windows.Forms.Button();
             this.btCreateReportM = new System.Windows.Forms.Button();
+            this.btRemoveReportI = new System.Windows.Forms.Button();
+            this.btSaveReportI = new System.Windows.Forms.Button();
+            this.btLoadReportI = new System.Windows.Forms.Button();
+            this.btCreateReportI = new System.Windows.Forms.Button();
+            this.tbReportIValue = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.tbReportIDate = new System.Windows.Forms.TextBox();
+            this.tbReportIY = new System.Windows.Forms.TextBox();
+            this.tbReportIX = new System.Windows.Forms.TextBox();
+            this.tbReportIName = new System.Windows.Forms.TextBox();
             this.tcMaintabs.SuspendLayout();
             this.tabMissies.SuspendLayout();
             this.tcMissiontabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMaintabs
@@ -425,6 +439,19 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.btRemoveReportI);
+            this.tabPage7.Controls.Add(this.btSaveReportI);
+            this.tabPage7.Controls.Add(this.btLoadReportI);
+            this.tabPage7.Controls.Add(this.btCreateReportI);
+            this.tabPage7.Controls.Add(this.tbReportIValue);
+            this.tabPage7.Controls.Add(this.label23);
+            this.tabPage7.Controls.Add(this.label24);
+            this.tabPage7.Controls.Add(this.label25);
+            this.tabPage7.Controls.Add(this.label27);
+            this.tabPage7.Controls.Add(this.tbReportIDate);
+            this.tabPage7.Controls.Add(this.tbReportIY);
+            this.tabPage7.Controls.Add(this.tbReportIX);
+            this.tabPage7.Controls.Add(this.tbReportIName);
             this.tabPage7.Location = new System.Drawing.Point(124, 4);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
@@ -779,6 +806,117 @@
             this.btCreateReportM.Text = "Maak aan";
             this.btCreateReportM.UseVisualStyleBackColor = true;
             // 
+            // btRemoveReportI
+            // 
+            this.btRemoveReportI.Location = new System.Drawing.Point(460, 191);
+            this.btRemoveReportI.Name = "btRemoveReportI";
+            this.btRemoveReportI.Size = new System.Drawing.Size(64, 116);
+            this.btRemoveReportI.TabIndex = 59;
+            this.btRemoveReportI.Text = "Verwijder";
+            this.btRemoveReportI.UseVisualStyleBackColor = true;
+            this.btRemoveReportI.Click += new System.EventHandler(this.btRemoveReportI_Click);
+            // 
+            // btSaveReportI
+            // 
+            this.btSaveReportI.Location = new System.Drawing.Point(350, 232);
+            this.btSaveReportI.Name = "btSaveReportI";
+            this.btSaveReportI.Size = new System.Drawing.Size(104, 35);
+            this.btSaveReportI.TabIndex = 58;
+            this.btSaveReportI.Text = "Opslaan";
+            this.btSaveReportI.UseVisualStyleBackColor = true;
+            this.btSaveReportI.Visible = false;
+            this.btSaveReportI.Click += new System.EventHandler(this.btSaveReportI_Click);
+            // 
+            // btLoadReportI
+            // 
+            this.btLoadReportI.Location = new System.Drawing.Point(350, 191);
+            this.btLoadReportI.Name = "btLoadReportI";
+            this.btLoadReportI.Size = new System.Drawing.Size(104, 35);
+            this.btLoadReportI.TabIndex = 57;
+            this.btLoadReportI.Text = "Laad (vul naam in)";
+            this.btLoadReportI.UseVisualStyleBackColor = true;
+            this.btLoadReportI.Click += new System.EventHandler(this.btLoadReportI_Click);
+            // 
+            // btCreateReportI
+            // 
+            this.btCreateReportI.Location = new System.Drawing.Point(350, 273);
+            this.btCreateReportI.Name = "btCreateReportI";
+            this.btCreateReportI.Size = new System.Drawing.Size(104, 34);
+            this.btCreateReportI.TabIndex = 56;
+            this.btCreateReportI.Text = "Maak aan";
+            this.btCreateReportI.UseVisualStyleBackColor = true;
+            // 
+            // tbReportIValue
+            // 
+            this.tbReportIValue.Location = new System.Drawing.Point(88, 58);
+            this.tbReportIValue.Name = "tbReportIValue";
+            this.tbReportIValue.Size = new System.Drawing.Size(325, 20);
+            this.tbReportIValue.TabIndex = 55;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(16, 61);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 13);
+            this.label23.TabIndex = 54;
+            this.label23.Text = "Waarde";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(16, 112);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(38, 13);
+            this.label24.TabIndex = 53;
+            this.label24.Text = "Datum";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(16, 86);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(71, 13);
+            this.label25.TabIndex = 52;
+            this.label25.Text = "Locatie (X, Y)";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(16, 34);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(66, 13);
+            this.label27.TabIndex = 50;
+            this.label27.Text = "Naam missie";
+            // 
+            // tbReportIDate
+            // 
+            this.tbReportIDate.Location = new System.Drawing.Point(88, 109);
+            this.tbReportIDate.Name = "tbReportIDate";
+            this.tbReportIDate.Size = new System.Drawing.Size(100, 20);
+            this.tbReportIDate.TabIndex = 49;
+            // 
+            // tbReportIY
+            // 
+            this.tbReportIY.Location = new System.Drawing.Point(130, 83);
+            this.tbReportIY.Name = "tbReportIY";
+            this.tbReportIY.Size = new System.Drawing.Size(36, 20);
+            this.tbReportIY.TabIndex = 48;
+            // 
+            // tbReportIX
+            // 
+            this.tbReportIX.Location = new System.Drawing.Point(88, 83);
+            this.tbReportIX.Name = "tbReportIX";
+            this.tbReportIX.Size = new System.Drawing.Size(36, 20);
+            this.tbReportIX.TabIndex = 47;
+            // 
+            // tbReportIName
+            // 
+            this.tbReportIName.Location = new System.Drawing.Point(88, 31);
+            this.tbReportIName.Name = "tbReportIName";
+            this.tbReportIName.Size = new System.Drawing.Size(100, 20);
+            this.tbReportIName.TabIndex = 45;
+            // 
             // GreenShark
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,6 +936,8 @@
             this.tabPage1.PerformLayout();
             this.tabPage6.ResumeLayout(false);
             this.tabPage6.PerformLayout();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -872,6 +1012,19 @@
         private System.Windows.Forms.TextBox tbReportMX;
         private System.Windows.Forms.TextBox tbReportMType;
         private System.Windows.Forms.TextBox tbReportMName;
+        private System.Windows.Forms.Button btRemoveReportI;
+        private System.Windows.Forms.Button btSaveReportI;
+        private System.Windows.Forms.Button btLoadReportI;
+        private System.Windows.Forms.Button btCreateReportI;
+        private System.Windows.Forms.TextBox tbReportIValue;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox tbReportIDate;
+        private System.Windows.Forms.TextBox tbReportIY;
+        private System.Windows.Forms.TextBox tbReportIX;
+        private System.Windows.Forms.TextBox tbReportIName;
     }
 }
 
