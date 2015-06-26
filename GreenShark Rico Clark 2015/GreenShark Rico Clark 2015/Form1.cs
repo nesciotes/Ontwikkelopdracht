@@ -16,7 +16,7 @@ namespace GreenShark_Rico_Clark_2015
         {
             InitializeComponent();
             tcMissiontabs.DrawItem += new DrawItemEventHandler(tcMissiontabs_DrawItem);
-            LoadAllTemplates();
+            //LoadAllTemplates();
         }
 
         private void LoadAllTemplates()

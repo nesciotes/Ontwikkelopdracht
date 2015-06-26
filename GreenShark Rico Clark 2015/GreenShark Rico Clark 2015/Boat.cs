@@ -29,13 +29,11 @@ namespace GreenShark_Rico_Clark_2015
             this.materials = materials;
         }
 
-        public Boat(string name, string type, int speed, int people, List<User> users , List<Material> materials)
+        public Boat(string name, int speed, int people)
         {
             this.name = name;
-            this.type = type;
             this.speed = speed;
             this.people = people;
-            this.materials = materials;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +35,31 @@ namespace GreenShark_Rico_Clark_2015
         public List<MissionProfile> LoadAllTemplates()
         {
             return Administration_.database.LoadAllTemplates();
+        }
+
+        public double Distance(Point a, Point b)
+        {
+            return Math.Sqrt(
+                Math.Pow(
+                    Math.Abs(a.X - b.X), 2)
+                + Math.Pow(
+                    Math.Abs(a.Y - b.Y), 2));
+        }
+
+        public Boat Nearestboat(List<Boat> boats, Mission m)
+        {
+            double shortestdistance = -1;
+            Boat nearestboat = null;
+            foreach (Boat b in boats)
+            {
+                double distancefound = Distance(b.location, m.location);
+                if(distancefound < shortestdistance || shortestdistance == -1)
+                {
+                    shortestdistance = distancefound;
+                    nearestboat = b;
+                }
+            }
+            return nearestboat;
         }
     }
 }
